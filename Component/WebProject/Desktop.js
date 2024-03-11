@@ -1,41 +1,55 @@
 import React from "react";
-import {Main, Text, useMedia, View, XGroup, XStack, YStack,Separator} from "tamagui"
-import { Platform } from "react-native";
+import {Main, Text, useMedia, View, XGroup, XStack, YStack,Separator, Image, ScrollView, Group} from "tamagui"
+import { FlatList, Platform, TouchableOpacity } from "react-native";
 import { color } from "@tamagui/themes";
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import ListOfMind from "Component/ListData/ListOfMind";
 export default CodeRender=()=>{
     const media= useMedia();
+    const image=require("../../assets/Photos/food1.jpg")
     return (
-         <Main  flex={1} $gtSm={{backgroundColor:color.pink2Light}} $sm={{backgroundColor:Platform.OS==="web"?"white":"white"}}>
-            <View $gtSm={{marginHorizontal:"10%" ,marginVertical:"1%"}} $sm={{margin:25}}>
+        
+         <Main  flex={1} justifyContent="center" alignItems="center" $gtSm={{backgroundColor:color.pink2Light}} $sm={{backgroundColor:Platform.OS==="web"?"white":"white"}}>
+
             {
                 //Text Color is White in Desktop
                 media.gtSm ? (
-                    <View>
-                        <XGroup height={60}  flex={1} backgroundColor={"white"} justifyContent="center" alignItems="center" >
-                           <XGroup.Item>
-                               <Text  color={"black"} fontWeight={"bold"} fontSize={35} fontStyle="normal" paddingHorizontal={10} paddingRight={30}>Zomato</Text>
-                           </XGroup.Item>
-                           <XGroup.Item>
-                               <Icon name="location-arrow" size={25} color="red" style={{marginLeft:"1%",marginRight:"2%"}}/>
-                               <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={200}>Guwathi</Text>
-                               <Icon name="toogle" size={10} color="black" style={{marginLeft:"1%",marginRight:"2%"}}/>
-                           </XGroup.Item>
-                           <XGroup.Item>
-                               <Icon name="search" size={25} color="red" style={{marginLeft:"1%",marginRight:"2%"}}/>
-                               <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={400}>Guwathi</Text>
-                               <Icon name="toogle" size={10} color="black" style={{marginLeft:"1%",marginRight:"2%"}}/>
-                           </XGroup.Item>
-                           <XGroup.Item>
-                               <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={100}>Login</Text>
-                               <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={100}>SignUp</Text>
+                    <ScrollView $gtSm={{marginHorizontal:"10%" ,marginVertical:"1%",flex:1, width:media.gtLg?"60%":"80%"}} showsVerticalScrollIndicator={false}>
 
-                           </XGroup.Item>
-                        </XGroup>
-                    {/* <Text  color={"black"}>Hello22</Text> */}
-
-                    </View>
+                            <XGroup height={60}  flex={1} backgroundColor={"white"} justifyContent="center" alignItems="center" disabled>
+                                <XGroup.Item>
+                                    <Text  color={"black"} fontWeight={"bold"} fontSize={35} fontStyle="normal" paddingHorizontal={10} paddingRight={30}>YAPIO</Text>
+                                </XGroup.Item>
+                                <XGroup.Item>
+                                    <Icon name="location-arrow" size={25} color="red" style={{marginLeft:"1%",marginRight:"2%"}}/>
+                                    <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={200}>Guwathi</Text>
+                                    <Icon name="toogle" size={10} color="black" style={{marginLeft:"1%",marginRight:"2%"}}/>
+                                </XGroup.Item>
+                                <XGroup.Item>
+                                    <Icon name="search" size={25} color="red" style={{marginLeft:"1%",marginRight:"2%"}}/>
+                                    <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={400}>Guwathi</Text>
+                                    <Icon name="toogle" size={10} color="black" style={{marginLeft:"1%",marginRight:"2%"}}/>
+                                </XGroup.Item>
+                                <XGroup.Item>
+                                    <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={100}>Login</Text>
+                                    <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={100}>SignUp</Text>
+                                </XGroup.Item>
+                            </XGroup>
+                            <ScrollView mt={40}  horizontal={true} showsHorizontalScrollIndicator={media.gtSm?true:false}        scrollIndicatorInsets={{ top: 1, bottom: 1, left: 1, right: 10 }}>
+                                <FlatList
+                                        data={ListOfMind}
+                                        renderItem={({item}) => (
+                                            <Image
+                                                source={{ width: 90, height: 90, uri: item.image }}
+                                                borderRadius={100}
+                                            /> 
+                                        )}
+                                    horizontal={true}
+                                    ItemSeparatorComponent={<View style={{height:10, width:60}}></View>}
+                                />
+                            </ScrollView>
+                    </ScrollView>
+                        
                 ) : 
                 (
                     <View>
@@ -50,7 +64,6 @@ export default CodeRender=()=>{
                <View >
 
                </View>
-            </View>
          </Main>
     )
 }

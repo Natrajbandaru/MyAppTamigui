@@ -1,31 +1,59 @@
  export default ListOfmind=        [
             {
                 name:"pizza",
-                image:require("../../assets/Photos/food2.jpg"),
+                image:"../../assets/Photos/food2.jpg",
             },
             {
                 name:"Biryani",
-                image:require("../../assets/Photos/food6.jpg"),
+                image:"../../assets/Photos/food6.jpg",
             },
             {
                 name:"Burger",
-                image:require("../../assets/Photos/typeBurgeir.jpg"),
+                image:"../../assets/Photos/typeBurgeir.jpg",
             },
             {
                 name:"mushroom",
-                image:require("../../assets/Photos/food2.jpg"),
+                image:"../../assets/Photos/food2.jpg",
             },
             {
                 name:"rolls",
-                image:require("../../assets/Photos/typePiza.jpg"),
+                image:"../../assets/Photos/typePiza.jpg",
             },
             {
                 name:"cake",
-                image:require("../../assets/Photos/food2.jpg"),
+                image:"../../assets/Photos/food2.jpg",
             },
             {
                 name:"checken",
-                image:require("../../assets/Photos/typeChicken.jpg"),
+                image:"../../assets/Photos/typeChicken.jpg",
+            },
+            {
+                name:"pizza",
+                image:"../../assets/Photos/food2.jpg",
+            },
+            {
+                name:"Biryani",
+                image:"../../assets/Photos/food6.jpg",
+            },
+            {
+                name:"Burger",
+                image:"../../assets/Photos/typeBurgeir.jpg",
+            },
+            {
+                name:"mushroom",
+                image:"../../assets/Photos/food2.jpg",
+            },
+            {
+                name:"rolls",
+                image:"../../assets/Photos/typePiza.jpg",
+            },
+            {
+                name:"cake",
+                image:"../../assets/Photos/food2.jpg",
+            },
+            {
+                name:"checken",
+                image:"../../assets/Photos/typeChicken.jpg",
             },
         
         ]
