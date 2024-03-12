@@ -1,9 +1,11 @@
 import React from "react";
 import {Main, Text, useMedia, View, XGroup, XStack, YStack,Separator, Image, ScrollView, Group} from "tamagui"
-import { FlatList, Platform, TouchableOpacity } from "react-native";
+import { FlatList, Platform, SectionList, TouchableOpacity } from "react-native";
 import { color } from "@tamagui/themes";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ListOfMind from "Component/ListData/ListOfMind";
+import ListOfResterentItems from "Component/ListData/ListOfRestarentPhotos";
+
 export default CodeRender=()=>{
     const media= useMedia();
     const image=require("../../assets/Photos/food1.jpg")
@@ -35,7 +37,8 @@ export default CodeRender=()=>{
                                     <Text  color={"grey"}   fontStyle="normal" paddingHorizontal={10} paddingRight={30}  width={100}>SignUp</Text>
                                 </XGroup.Item>
                             </XGroup>
-                            <ScrollView mt={40}  horizontal={true} showsHorizontalScrollIndicator={media.gtSm?true:false}        scrollIndicatorInsets={{ top: 1, bottom: 1, left: 1, right: 10 }}>
+                            <Text color={"grey"} fontSize={30} paddingTop={30}>Insperation Of Your First Order</Text>
+                            <ScrollView mt={10}  horizontal={true} showsHorizontalScrollIndicator={media.gtSm?true:false}        scrollIndicatorInsets={{ top: 1, bottom: 1, left: 1, right: 10 }}>
                                 <FlatList
                                         data={ListOfMind}
                                         renderItem={({item}) => (
@@ -48,6 +51,33 @@ export default CodeRender=()=>{
                                     ItemSeparatorComponent={<View style={{height:10, width:60}}></View>}
                                 />
                             </ScrollView>
+                            <Text color={"grey"} fontSize={30} paddingTop={30}>Top Brands For You</Text>
+                            <ScrollView mt={10}  horizontal={true} showsHorizontalScrollIndicator={media.gtSm?true:false}   flex={1}  flexWrap="wrap"    scrollIndicatorInsets={{ top: 1, bottom: 1, left: 1, right: 10 }}>
+                                <FlatList
+                                        data={ListOfMind}
+                                        renderItem={({item}) => {
+                                            alert("kk")
+                                            return (
+                                            <Image
+                                                source={{ width: 90, height: 90, uri: item.image }}
+                                                borderRadius={100}
+                                            /> 
+                                        )}
+                                    }
+                                    horizontal={true}
+                                    ItemSeparatorComponent={<View style={{height:10, width:60}}></View>}
+                                />
+                            </ScrollView>
+                            <ScrollView width={"100%"} flex={1} flexWrap="wrap">
+                            <FlatList
+                                        data={ListOfResterentItems}
+                                        renderItem={({item}) => (
+                                           <Text>{item.offer}</Text>
+                                        )}
+                                    ItemSeparatorComponent={<View style={{height:10, width:60}}></View>}
+                                />
+                            </ScrollView>
+                            
                     </ScrollView>
                         
                 ) : 

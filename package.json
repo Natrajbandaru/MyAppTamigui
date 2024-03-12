@@ -19,6 +19,7 @@
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.4",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-vector-icons": "^10.0.3",
     "tamagui": "1.74.8"
   },
