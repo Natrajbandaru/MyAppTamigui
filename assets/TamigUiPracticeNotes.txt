@@ -1,0 +1,136 @@
+-> Grid
+          Note:
+            Two Types 1)Normal LessThan
+                        when you work with grid if you are keeping for a style for large it well act for extraSmall es, small sm,and large l 
+                    2)GreatherThan
+                            when you work with grid if you are keeping for a style for gtlarge it well act for large lg, extraLarge eL,and xxl xtemLargel 
+
+    ->By Default
+        xs: { maxWidth: 660 },
+        sm: { maxWidth: 800 },
+        md: { maxWidth: 1020 },
+        lg: { maxWidth: 1280 },
+        xl: { maxWidth: 1420 },
+        xxl: { maxWidth: 1600 },
+
+        gtXs: { minWidth: 660 + 1 },
+        gtSm: { minWidth: 800 + 1 },
+        gtMd: { minWidth: 1020 + 1 },
+        gtLg: { minWidth: 1280 + 1 },
+        short: { maxHeight: 820 },
+        tall: { minHeight: 820 },
+        hoverNone: { hover: 'none' },
+        pointerCoarse: { pointer: 'coarse' }
+
+   -> UseMedia (For Grid, TamigUi provide useMedia Hook For For getting a TRUE or FALSE in Present Screen)
+         -> It well Give TRUE Or FALSE in present Screen
+            eg:
+                const media = useMedia();
+                alert(media.xs)   => True || False
+            eg(Code):
+                <ScrollView  horizontal={media.gtLg} >
+
+   ->Declaration Of Grid
+        t1) $lg={styles}     
+               eg: $sm={{flexDirection:"row"}}
+               
+        t2) horizontal={media.gtLg}
+             eg: <ScrollView  horizontal={media.gtLg} >
+
+
+    Code:
+        XStack  $sm={{flexDirection:"column"}} space>
+             <ScrollView  horizontal={media.gtLg} >
+                <CardData/>
+                <CardData/>
+             </ScrollView>
+        </XStack>
+
+    code2:
+       {media.short && 
+          <YStack >
+            <CardData/>
+            <CardData/>
+            <CardData/>
+          </YStack>
+          }
+           {media.gtLg && 
+            <XStack  >
+              <CardData/>
+              <CardData/>
+              <CardData/>
+            </XStack>
+           }
+      
+
+-> Tokens
+Tokens are used for  geting a colors 
+
+eg:
+import { colorTokens, tokens } from "@tamagui/themes";
+backgroundColor:colorTokens.dark.blue.blue7
+
+
+
+-> Themes:
+ Note: Thems are used for only the particular tamigu component
+       There are lot of colors are asigned for a perticular Them
+    
+ eg1:
+ import { themes } from "@tamagui/themes";
+
+  <Theme name="blue">
+         <Card height={200}>
+             <Card.Header>
+                <Text fontStyle="italic" color={"white"}>Hello World</Text>
+             </Card.Header>
+
+             <Card.Footer>
+             <Text fontStyle="italic" color={"white"} padding={"$-4.5"}>Hello World</Text>
+            </Card.Footer>
+  <Theme/>
+
+  eg2: By UseTheme()
+
+    const theme = useTheme()
+    const background = theme.background.get()
+
+
+
+
+->Groups
+  Two Types  
+       -> Group
+          <Group.Item>
+          </Group.Item>
+        
+         prop: orentation : horizontal | Vertical
+          
+
+       -> XGroup
+          <XGroup.Item>
+          </XGroup.Item>
+       -> YGroup
+          <YGroup.Item>
+          </YGroup.Item>
+
+     prop : disabled                = true | fase
+            disablePassBorderRadius = boolean | 'bottom' | 'top' | 'start' | 'end'
+
+
+->Card
+    <Card>
+        <Card.Header >
+        </Card.Header >
+
+        <Card.Footer>
+        </Card.Footer>
+
+
+        <Card.Background>
+        </Card.Background>
+    </Card>
+
+
+
+        
